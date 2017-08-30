@@ -1,0 +1,32 @@
+AppBundle\Entity\HistoryDeploy:
+  type: entity
+  table: history_deploy
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+      component:
+          type: string
+          nullable: true
+          length: 255
+          options:
+              fixed: false
+      version:
+          type: string
+          nullable: true
+          length: 255
+      responsible:
+          type: string
+          nullable: true
+          length: 255
+      status:
+          type: string
+          nullable: true
+          length: 255
+      createdAt:
+          type: datetime
+          nullable: true
+          column: created_at

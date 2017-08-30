@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="page-header" id="grid">
+        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+        Últimos 10 registros
+
+        <!-- Indicates a successful or positive action -->
+        <a href="{{ path("home-api-download") }}" class="btn btn-success right-link" role="button">Baixar lista completa</a>
+    </h1>
+    Meu ip: <strong>{{ meuIp }}</strong>
+
+    <div class="starter-template">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Component</th>
+                <th>Versão</th>
+                <th>Responsável</th>
+                <th>Status</th>
+                <th class="center">Data</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for log in content %}
+                    <tr>
+                        <th scope="row">{{ log.id }}</th>
+                        <td class="left">{{ log.component }}</td>
+                        <td class="left"><span class="label label-info">{{ log.version }}</span></td>
+                        <td class="left">{{ log.responsible }}</td>
+                        <td class="left"><span class="label label-success">{{ log.status }}</span></td>
+                        <td>{{ log.createdAt|date("d/m/Y H:i") }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,4 @@
+Data;Componente;Versão;Responsável;Status;
+{% for row in content %}
+    {{ row.createdAt|date("d/m/Y H:i") }};{{ row.component }};{{ row.version }};{{ row.responsible }};{{ row.status }};
+{% endfor %}

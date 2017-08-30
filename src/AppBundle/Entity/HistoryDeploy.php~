@@ -1,0 +1,156 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Class HistoryDeploy
+ * @package AppBundle\Entity
+ */
+class HistoryDeploy
+{
+    /**
+     * @var
+     */
+    protected $id;
+
+    /**
+     * @var
+     */
+    protected $component;
+
+    /**
+     * @var
+     */
+    protected $version;
+
+    /**
+     * @var
+     */
+    protected $responsible;
+
+    /**
+     * @var
+     */
+    protected $status;
+
+    /**
+     * @var \DateTime
+     */
+    protected $createdAt;
+
+    /**
+     * HistoryDeploy constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComponent()
+    {
+        return $this->component;
+    }
+
+    /**
+     * @param mixed $component
+     */
+    public function setComponent($component)
+    {
+        $this->component = $component;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param mixed $version
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResponsible()
+    {
+        return $this->responsible;
+    }
+
+    /**
+     * @param mixed $responsible
+     */
+    public function setResponsible($responsible)
+    {
+        $this->responsible = $responsible;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @param array $data
+     */
+    public function importFromArray(array $data)
+    {
+        $parameters = (object) $data;
+        $this->setComponent($parameters->component);
+        $this->setVersion($parameters->version);
+        $this->setResponsible($parameters->responsible);
+        $this->setStatus($parameters->status);
+    }
+}

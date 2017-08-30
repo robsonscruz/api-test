@@ -1,0 +1,12 @@
+home-api:
+    path:  /
+    defaults: { _controller: AppBundle:Default:index }
+
+home-api-download:
+    path:  /download
+    defaults: { _controller: AppBundle:Default:download }
+
+deploy-api:
+    path:  /deploy
+    defaults: { _controller: AppBundle:Default:deploy }
+    methods:  [POST]
