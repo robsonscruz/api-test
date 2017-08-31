@@ -27,6 +27,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $this->get("structure_service")->createStructure();
         $meuIp = shell_exec("cat /etc/hosts | grep $(cat /etc/hostname) | awk '{print $1}' | uniq");
         $content = $this->getDoctrine()->getManager()->getRepository(HistoryDeploy::class)->findBy(
             [],

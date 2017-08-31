@@ -1,0 +1,4 @@
+services:
+    structure_service:
+        class: AppBundle\Service\StructureService
+        arguments: ['@doctrine.orm.default_entity_manager', '@kernel']
