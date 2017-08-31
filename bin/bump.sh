@@ -1,8 +1,7 @@
 #!/bin/bash
 
 composer update
-sed -i '/\/vendor\//d' ./.gitignore
-sed -i '/\/app\/config\/parameters.yml/d' ./.gitignore
+
 find . -type f -name '*.gitignore' -delete
 find vendor -type d -name '*.git' | xargs rm -rf
 
